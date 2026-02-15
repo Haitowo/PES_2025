@@ -12,14 +12,14 @@ namespace Com.IsartDigital.PES.Planet
     {
         // ----------------~~~~~~~~~~~~~~~~~~~==========================# // VARIABLES
         [SerializeField] private float _Radius = 5f;
-        [SerializeField] private float _Speed = 10f;
-
         [SerializeField] private Transform _Center;
+
+        private float _Speed;
 
         // ----------------~~~~~~~~~~~~~~~~~~~==========================# // READY
         private void Awake()
         {
-
+            _Speed = Random.Range(0, .5f);
         }
 
         // ----------------~~~~~~~~~~~~~~~~~~~==========================# // PROCESS
