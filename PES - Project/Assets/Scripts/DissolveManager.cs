@@ -18,6 +18,8 @@ namespace Com.IsartDigital.ProjectName
         private const float DISSOLVE_MIN_VALUE = .5f;
         private const float DISSOLVE_MAX_VALUE = 1.2f;
 
+        private const string DISSOLVE_SHADER_PROPERTY_NAME = "_Dissolve";
+
         // ----------------~~~~~~~~~~~~~~~~~~~==========================# // READY
         private void Awake()
         {
@@ -33,10 +35,10 @@ namespace Com.IsartDigital.ProjectName
         private void DissolveOnSin()
         {
             float lSin = Mathf.Sin(Time.time * _DissolveSpeed);
-            float lNormalized = (lSin + 1f) * 0.5f;              
+            float lNormalized = (lSin + 1f) * .5f;              
             _DissolveValue = Mathf.Lerp(DISSOLVE_MIN_VALUE, DISSOLVE_MAX_VALUE, lNormalized);
 
-            _DissolveMaterialShader.SetFloat("_Dissolve", _DissolveValue);
+            _DissolveMaterialShader.SetFloat(DISSOLVE_SHADER_PROPERTY_NAME, _DissolveValue);
         }
     }
 }

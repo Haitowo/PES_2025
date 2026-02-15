@@ -11,16 +11,9 @@ namespace Com.IsartDigital.PES.Planet
     public class PlanetManager : MonoBehaviour
     {
         // ----------------~~~~~~~~~~~~~~~~~~~==========================# // VARIABLES
+        [Range(0, .5f), SerializeField] private float _RotationSpeed;
         [SerializeField] private float _Radius = 5f;
         [SerializeField] private Transform _Center;
-
-        private float _Speed;
-
-        // ----------------~~~~~~~~~~~~~~~~~~~==========================# // READY
-        private void Awake()
-        {
-            _Speed = Random.Range(0, .5f);
-        }
 
         // ----------------~~~~~~~~~~~~~~~~~~~==========================# // PROCESS
         private void Update()
@@ -30,7 +23,7 @@ namespace Com.IsartDigital.PES.Planet
 
         private void CircleMovement()
         {
-            float lAngle = _Speed * Time.time;
+            float lAngle = _RotationSpeed * Time.time;
             float lX = Mathf.Cos(lAngle) * _Radius;
             float lZ = Mathf.Sin(lAngle) * _Radius;
 
