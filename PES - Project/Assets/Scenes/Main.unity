@@ -628,7 +628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Speed: 10
   _SmoothTime: 15
-  _RotationSensitivity: 0.2
+  _RotationSensitivity: 0.1
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
