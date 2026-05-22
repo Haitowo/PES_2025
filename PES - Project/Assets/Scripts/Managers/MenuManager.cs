@@ -79,7 +79,7 @@ namespace Com.IsartDigital.PES.Manager
                 case EMenuType.MAIN:
                     break;
                 case EMenuType.PLAY:
-                    _GameManager.ActivateInputs();
+                    _GameManager.SetInputsAndCursor(_GameManager.onGameStart, CursorLockMode.Locked);
                     break;
                 case EMenuType.OPTIONS:
                     break;
@@ -98,6 +98,8 @@ namespace Com.IsartDigital.PES.Manager
                     break;
 #endif
                     break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(pType), pType, null);
             }
         }
     }

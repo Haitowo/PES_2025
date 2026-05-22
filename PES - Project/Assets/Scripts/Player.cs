@@ -34,11 +34,8 @@ namespace Com.IsartDigital.PES.Player
         private void Awake()
         {
             _Inputs = new CustomInputs();
-            _Inputs.Enable();
             
-            // Cursor.lockState = CursorLockMode.Locked;
-
-            _DoAction = SetStateVoid;
+            SetStateVoid();
         }
 
         // ----------------~~~~~~~~~~~~~~~~~~~==========================# // PROCESS
@@ -60,8 +57,9 @@ namespace Com.IsartDigital.PES.Player
             Vector2 lInput = _Inputs.PlayerInputs.Move.ReadValue<Vector2>();
             Vector2 lUpAndDown = _Inputs.PlayerInputs.UpAndDown.ReadValue<Vector2>();
             Vector3 lTargetInput = new Vector3(lInput.x, lUpAndDown.y, lInput.y);
+            Vector3 lWorldDirection = transform.TransformDirection(lTargetInput);
             
-            _CurrentVelocity = Vector3.Lerp(_CurrentVelocity, lTargetInput, _SmoothTime * Time.deltaTime);
+            _CurrentVelocity = Vector3.Lerp(_CurrentVelocity, lWorldDirection, _SmoothTime * Time.deltaTime);
             transform.position += _CurrentVelocity * _Speed * Time.deltaTime;
         }
 
@@ -84,6 +82,8 @@ namespace Com.IsartDigital.PES.Player
                 return;
 
             _GameManager.onGameStart += SetStateMove;
+            _GameManager.onGamePaused += SetStateVoid;
+            _Inputs.Enable();
         }
 
         private void OnDisable()
@@ -92,6 +92,8 @@ namespace Com.IsartDigital.PES.Player
                 return;
             
             _GameManager.onGameStart -= SetStateMove;
+            _GameManager.onGamePaused -= SetStateVoid;
+            _Inputs.Disable();
         }
 
     }

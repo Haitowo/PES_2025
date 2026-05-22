@@ -5695,6 +5695,17 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &560959489 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6290141949754779807, guid: c3b3768c0b538f249bcca0b7e43115d9, type: 3}
+  m_PrefabInstance: {fileID: 7134112404193781938}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ecfde65519e09e4599cd8121f469726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &597295849
 GameObject:
   m_ObjectHideFlags: 0
@@ -16888,7 +16899,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2120602517}
-  - component: {fileID: 2120602516}
+  - component: {fileID: 2120602518}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -16896,20 +16907,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2120602516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2120602515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ecfde65519e09e4599cd8121f469726, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _MenuMusic: {fileID: 0}
-  _GameMusic: {fileID: 0}
 --- !u!4 &2120602517
 Transform:
   m_ObjectHideFlags: 0
@@ -16925,6 +16922,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2120602518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120602515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e46332546b0384698b65486e32a9f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _MenuManager: {fileID: 560959489}
 --- !u!1001 &7134112404193781938
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16976,6 +16986,10 @@ PrefabInstance:
     - target: {fileID: 6023707392115100428, guid: c3b3768c0b538f249bcca0b7e43115d9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750041982255987426, guid: c3b3768c0b538f249bcca0b7e43115d9, type: 3}
+      propertyPath: m_Name
+      value: Continue
       objectReference: {fileID: 0}
     - target: {fileID: 6979199141198572005, guid: c3b3768c0b538f249bcca0b7e43115d9, type: 3}
       propertyPath: m_Name
