@@ -5,7 +5,7 @@ using UnityEngine;
 // Author : Florian MAJCHER - Isart DIGITAL
 // DATE : 00/00/0000 - Beginning of the class
 
-namespace Com.IsartDigital.ProjectName
+namespace Com.IsartDigital.PES.Shaders
 {
     
     public class DissolveManager : MonoBehaviour
@@ -13,7 +13,7 @@ namespace Com.IsartDigital.ProjectName
         // ----------------~~~~~~~~~~~~~~~~~~~==========================# // VARIABLES
         private Material _DissolveMaterialShader;
         private float _DissolveValue;
-        private float _DissolveSpeed = 1f;
+        private readonly float _DissolveSpeed = 1f;
 
         private const float DISSOLVE_MIN_VALUE = .5f;
         private const float DISSOLVE_MAX_VALUE = 1.2f;

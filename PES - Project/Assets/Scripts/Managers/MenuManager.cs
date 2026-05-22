@@ -1,6 +1,8 @@
+using System;
 using DG.Tweening;
 using System.Collections.Generic;
 using Com.IsartDigital.PES.Enum;
+using Com.IsartDigital.PES.Managers;
 using Com.IsartDigital.PES.UI;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,8 +24,9 @@ namespace Com.IsartDigital.PES.Manager
 
         private readonly Dictionary<EMenuType, GameObject> _Menus = new Dictionary<EMenuType, GameObject>();
         
-
         private bool _IsGamePlaying;
+
+        private GameManager _GameManager => GameManager.Instance;
         
         // ----------------~~~~~~~~~~~~~~~~~~~==========================# // READY
         private void Awake()
@@ -58,39 +61,44 @@ namespace Com.IsartDigital.PES.Manager
         public void ShowMenu(EMenuType pType)
         {
             CheckType(pType);
+            
+            Transform lActiveMenu = _Menus[pType].transform;
 
             foreach (GameObject lMenu in _Menus.Values)
                 if (lMenu != null) lMenu.SetActive(false);
-
-            if (!_Menus.TryGetValue(pType, out GameObject lActiveMenu) || lActiveMenu == null)
-            {
-                Debug.LogError($"[MenuManager] Menu not registered: {pType}. Registered: {string.Join(", ", _Menus.Keys)}");
-                return;
-            }
-
-            lActiveMenu.SetActive(true);
             
-            Canvas lCanvas = lActiveMenu.transform.GetComponentInChildren<Canvas>();
-            if (lCanvas == null || lCanvas.transform.childCount < 2) return;
-
-            Transform lTransform = lCanvas.transform.GetChild(1);
-            lTransform.DOKill();
-            lTransform.localScale = Vector3.one * TWEEN_SCALE;
-            lTransform.DOScale(Vector3.one * TWEEN_SCALE, TWEEN_DURATION).From(Vector3.zero).SetEase(Ease.OutBack).SetUpdate(true);
+            lActiveMenu.gameObject.SetActive(true);
+            lActiveMenu.localScale = Vector3.zero;
+            lActiveMenu.DOScale(TWEEN_SCALE, TWEEN_DURATION).SetEase(Ease.OutBack);
         }
 
         private void CheckType(EMenuType pType)
         {
-            if (pType != EMenuType.QUIT) 
-                return;
-            
+            switch (pType)
+            {
+                case EMenuType.MAIN:
+                    break;
+                case EMenuType.PLAY:
+                    _GameManager.ActivateInputs();
+                    break;
+                case EMenuType.OPTIONS:
+                    break;
+                case EMenuType.CREDITS:
+                    break;
+                case EMenuType.TITLE_CARD:
+                    break;
+                case EMenuType.PAUSE:
+                    break;
+                case EMenuType.QUIT:
  #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
+                    UnityEditor.EditorApplication.isPlaying = false;
+                    break;
 #else
                 Application.Quit();
+                    break;
 #endif
-            return;
-
+                    break;
+            }
         }
     }
 }

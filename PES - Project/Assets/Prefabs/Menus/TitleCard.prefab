@@ -65,6 +65,7 @@ GameObject:
   - component: {fileID: 4490323328917671957}
   - component: {fileID: 1717357429089469658}
   - component: {fileID: 8322310398495767668}
+  - component: {fileID: 1959057982039260018}
   m_Layer: 5
   m_Name: Options
   m_TagString: Untagged
@@ -174,6 +175,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1959057982039260018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932126871001449589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc45508f1870bb24da98dadc89087fc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ScaleMultiplier: 1.1
+  _Duration: 0.5
+  _TargetMenu: 2
 --- !u!1 &3120735517252368524
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,6 +476,7 @@ GameObject:
   - component: {fileID: 8057996600325969134}
   - component: {fileID: 1742272884826536351}
   - component: {fileID: 1348719831200266838}
+  - component: {fileID: 1392401908383309812}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -569,6 +586,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1392401908383309812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6363739124383524883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc45508f1870bb24da98dadc89087fc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ScaleMultiplier: 1.1
+  _Duration: 0.5
+  _TargetMenu: 1
 --- !u!1 &7916444059819783437
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,6 +613,7 @@ GameObject:
   - component: {fileID: 4057200548935218494}
   - component: {fileID: 4943556025633308638}
   - component: {fileID: 8752118706151715266}
+  - component: {fileID: 7959752963771396595}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -690,6 +723,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7959752963771396595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7916444059819783437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc45508f1870bb24da98dadc89087fc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ScaleMultiplier: 1.1
+  _Duration: 0.5
+  _TargetMenu: 6
 --- !u!1 &8880365364271716518
 GameObject:
   m_ObjectHideFlags: 0

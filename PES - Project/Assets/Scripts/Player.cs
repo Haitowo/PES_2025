@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using Com.IsartDigital.PES.Managers;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 // Author : Florian MAJCHER - Isart DIGITAL
 // DATE : 00/00/0000 - Beginning of the class
@@ -26,6 +25,10 @@ namespace Com.IsartDigital.PES.Player
         private const float MAX_VALUE_ROTATION = 89f;
         
         private CustomInputs _Inputs;
+
+        private Action _DoAction;
+
+        private GameManager _GameManager => GameManager.Instance;
         
         // ----------------~~~~~~~~~~~~~~~~~~~==========================# // READY
         private void Awake()
@@ -33,18 +36,27 @@ namespace Com.IsartDigital.PES.Player
             _Inputs = new CustomInputs();
             _Inputs.Enable();
             
-            Cursor.lockState = CursorLockMode.Locked;
+            // Cursor.lockState = CursorLockMode.Locked;
+
+            _DoAction = SetStateVoid;
         }
 
         // ----------------~~~~~~~~~~~~~~~~~~~==========================# // PROCESS
         private void Update()
         {
-            Movements();
-            MouseRotation();
+            _DoAction();
         }
+
+        private void SetStateMove() => _DoAction = DoActionMove;
         
-        private void Movements()
+        private void SetStateVoid() => _DoAction = DoActionVoid;
+        
+        private void DoActionVoid() {}
+        
+        private void DoActionMove()
         {
+            MouseRotation();
+            
             Vector2 lInput = _Inputs.PlayerInputs.Move.ReadValue<Vector2>();
             Vector2 lUpAndDown = _Inputs.PlayerInputs.UpAndDown.ReadValue<Vector2>();
             Vector3 lTargetInput = new Vector3(lInput.x, lUpAndDown.y, lInput.y);
@@ -65,5 +77,22 @@ namespace Com.IsartDigital.PES.Player
             
             transform.rotation = Quaternion.Slerp(transform.rotation, lTargetRotation, _SmoothTime * Time.deltaTime);
         }
+
+        private void OnEnable()
+        {
+            if (_GameManager is null)
+                return;
+
+            _GameManager.onGameStart += SetStateMove;
+        }
+
+        private void OnDisable()
+        {
+            if (_GameManager is null)
+                return;
+            
+            _GameManager.onGameStart -= SetStateMove;
+        }
+
     }
 }

@@ -536,7 +536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc45508f1870bb24da98dadc89087fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ScaleMultiplier: 1.9
+  _ScaleMultiplier: 1.1
   _Duration: 0.5
   _TargetMenu: 0
 --- !u!1 &2421854722363851095
